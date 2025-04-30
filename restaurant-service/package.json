@@ -1,0 +1,24 @@
+{
+  "name": "restaurant-service",
+  "version": "1.0.0",
+  "description": "A restaurant service application with role-based functionalities for Administrator, Waiter, and Guest.",
+  "main": "index.js",
+  "homepage": "https://YuraSirenko.github.io/WebCourse",
+  "scripts": {
+    "build:sass": "sass src/sass/main.scss src/css/main.css",
+    "watch:sass": "nodemon -e scss -x \"npm run build:sass\"",
+    "sass": "sass src/sass/main.scss src/css/main.css",
+    "watch": "nodemon -e scss -x \"npm run sass\"",
+    "predeploy": "npm run build:sass",
+    "deploy": "gh-pages -d src"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "nodemon": "^3.1.10"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.87.0"
+  }
+}

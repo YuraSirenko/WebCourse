@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.button-secondary {
+  background: transparent;
+  border: 1px solid #3498db;
+  color: #3498db;
+  transition: all 0.3s ease-in-out;
+}
+.button-secondary:hover {
+  background: #3498db;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

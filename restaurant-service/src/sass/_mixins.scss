@@ -1,0 +1,30 @@
+// Flex utilities
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Transitions
+@mixin transition($props: all, $time: .3s, $ease: ease-in-out) {
+  transition: $props $time $ease;
+}
+
+// Box shadow
+@mixin box-shadow($shadow: 0 2px 4px rgba(0,0,0,0.1)) {
+  box-shadow: $shadow;
+}
+
+// Border radius
+@mixin border-radius($radius: .25rem) {
+  border-radius: $radius;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

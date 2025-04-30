@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Manage Users</a></li>
+                <li><a href="#">View Reports</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>User Listings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- User data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Manage Users</h2>
+            <form id="user-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="role">Role:</label>
+                <select id="role" name="role" required>
+                    <option value="waiter">Waiter</option>
+                    <option value="guest">Guest</option>
+                </select>
+                <button type="submit">Add User</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Restaurant Service Application</p>
+    </footer>
+</body>
+</html>

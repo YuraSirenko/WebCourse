@@ -1,0 +1,37 @@
+// Replace imports with module uses
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Global reset and base styles
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+  color: $color-text;
+}
+
+// Container
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 $base-spacing;
+}
+
+// Buttons
+.button-secondary {
+  background: transparent;
+  border: 1px solid $color-primary;
+  color: $color-primary;
+  @include transition();
+  &:hover {
+    background: $color-primary;
+    color: #fff;
+  }
+}
+
+// Responsive breakpoint example
+@media (max-width: 600px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+}

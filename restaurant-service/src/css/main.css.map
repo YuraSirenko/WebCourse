@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../sass/main.scss","../sass/_variables.scss","../sass/_mixins.scss"],"names":[],"mappings":"AAKA;EACE;EACA;EACA,aCEW;EDDX,OCNgB;;;ADUlB;EACE;EACA;EACA;;;AAIF;EACE;EACA;EACA,OCvBgB;ECShB;;AFgBA;EACE,YC1Bc;ED2Bd;;;AAKJ;EACE;IACE","file":"main.css"}
