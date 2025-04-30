@@ -1413,4 +1413,137 @@ footer {
   color: #6c757d;
 }
 
+/* =============================
+   Authentication Pages
+   ============================= */
+.login-page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.login-page .login-header {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-bottom: 1rem;
+  background-color: white;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.login-page .login-header h1 {
+  color: #3498db;
+  font-weight: 600;
+  margin: 0;
+}
+
+.login-form-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+.login-form-container .form-container {
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+.login-form-container h2 {
+  color: #333333;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+.login-form-container .login-subtitle {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+.roles-info {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+.roles-info .roles-hint {
+  margin-bottom: 0.25rem;
+  color: #6c757d;
+  font-size: 14px;
+}
+.roles-info .roles-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.terms-agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+.terms-agreement input[type=checkbox] {
+  margin-top: 0.25rem;
+}
+.terms-agreement .checkbox-label {
+  font-size: 14px;
+  color: #333333;
+  margin: 0;
+}
+
+.remember-me,
+.register-link,
+.login-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+.remember-me .remember-checkbox,
+.register-link .remember-checkbox,
+.login-link .remember-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.remember-me .checkbox-label,
+.register-link .checkbox-label,
+.login-link .checkbox-label {
+  margin: 0;
+  font-size: 14px;
+}
+.remember-me .forgot-password,
+.register-link .forgot-password,
+.login-link .forgot-password {
+  font-size: 14px;
+}
+
+.register-link,
+.login-link {
+  justify-content: center;
+  border-top: 1px solid #dee2e6;
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+}
+.register-link p,
+.login-link p {
+  margin: 0;
+  font-size: 14px;
+}
+.register-link p a,
+.login-link p a {
+  color: #3498db;
+  font-weight: 500;
+}
+.register-link p a:hover,
+.login-link p a:hover {
+  text-decoration: underline;
+}
+
+.field-hint {
+  display: block;
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -1294,3 +1294,143 @@ footer {
         }
     }
 }
+
+/* =============================
+   Authentication Pages
+   ============================= */
+
+.login-page {
+    background-color: $background-color-light;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .login-header {
+        text-align: center;
+        padding: $spacing-lg 0;
+        margin-bottom: $spacing-md;
+        background-color: white;
+        border-bottom: 1px solid $border-color;
+        @include box-shadow;
+
+        h1 {
+            color: $color-primary;
+            font-weight: 600;
+            margin: 0;
+        }
+    }
+}
+
+.login-form-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: $spacing-md 0 $spacing-xl;
+
+    .form-container {
+        padding: $spacing-lg;
+        border-radius: $border-radius-lg;
+        box-shadow: $box-shadow-lg;
+        background-color: white;
+    }
+
+    h2 {
+        color: $color-text;
+        text-align: center;
+        margin-bottom: $spacing-xs;
+    }
+
+    .login-subtitle {
+        text-align: center;
+        color: $color-text-light;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+.roles-info {
+    margin: $spacing-md 0;
+    padding: $spacing-sm;
+    background-color: $background-color-light;
+    border-radius: $border-radius;
+
+    .roles-hint {
+        margin-bottom: $spacing-xs;
+        color: $color-text-light;
+        font-size: $font-size-sm;
+    }
+
+    .roles-list {
+        display: flex;
+        gap: $spacing-sm;
+        flex-wrap: wrap;
+    }
+}
+
+.terms-agreement {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    margin: $spacing-sm 0;
+
+    input[type="checkbox"] {
+        margin-top: 0.25rem;
+    }
+
+    .checkbox-label {
+        font-size: $font-size-sm;
+        color: $color-text;
+        margin: 0;
+    }
+}
+
+.remember-me,
+.register-link,
+.login-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: $spacing-md 0;
+
+    .remember-checkbox {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+    }
+
+    .checkbox-label {
+        margin: 0;
+        font-size: $font-size-sm;
+    }
+
+    .forgot-password {
+        font-size: $font-size-sm;
+    }
+}
+
+.register-link,
+.login-link {
+    justify-content: center;
+    border-top: 1px solid $border-color;
+    padding-top: $spacing-md;
+    margin-top: $spacing-lg;
+
+    p {
+        margin: 0;
+        font-size: $font-size-sm;
+
+        a {
+            color: $color-primary;
+            font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.field-hint {
+    display: block;
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    margin-top: $spacing-xs;
+}
