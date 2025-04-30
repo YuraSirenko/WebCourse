@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Create User</title>
-  <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create User</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-  <header>
-    <nav><a href="users-list.html">Back to Users</a></nav>
-  </header>
-  <main class="container">
-    <section id="user-create">
-      <h2>Create User</h2>
-      <form action="/users" method="POST" class="form-group">
-        <label for="new-username">Username</label>
-        <input id="new-username" name="username" type="text" required>
-        <label for="new-password">Password</label>
-        <input id="new-password" name="password" type="password" required>
-        <label for="confirm-password">Confirm Password</label>
-        <input id="confirm-password" name="confirmPassword" type="password" required>
-        <label for="role">Role</label>
-        <select id="role" name="role" required>
-          <option value="" disabled selected>Select role</option>
-          <option value="admin">Admin</option>
-          <option value="regular">Regular</option>
-        </select>
-        <div class="form-actions">
-          <button type="submit">OK</button>
-          <a href="users-list.html" class="button-secondary">Cancel</a>
-        </div>
-      </form>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Restaurant Service</p>
-  </footer>
+    <header>
+        <nav class="main-nav">
+            <a href="users-list.html" class="back-link">← Back to Users</a>
+            <a href="logout.html" class="logout-link">Logout</a>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="user-create" class="form-container">
+            <h2>Create User</h2>
+
+            <!-- Error notification placeholder -->
+            <div class="error-notification hidden">
+                <p>Please correct the errors below before submitting.</p>
+            </div>
+
+            <form action="/users" method="POST" class="form-group">
+                <div class="form-field">
+                    <label for="new-username">Username</label>
+                    <input id="new-username" name="username" type="text" required>
+                    <span class="validation-error hidden">Username is required</span>
+                </div>
+
+                <div class="form-field">
+                    <label for="new-password">Password</label>
+                    <input id="new-password" name="password" type="password" required>
+                    <span class="validation-error hidden">Password is required</span>
+                </div>
+
+                <div class="form-field">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input id="confirm-password" name="confirmPassword" type="password" required>
+                    <span class="validation-error hidden">Passwords do not match</span>
+                </div>
+
+                <div class="form-field">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Select role</option>
+                        <option value="admin">Administrator</option>
+                        <option value="waiter">Waiter</option>
+                        <option value="guest">Guest</option>
+                    </select>
+                    <span class="validation-error hidden">Please select a role</span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="button-primary">OK</button>
+                    <a href="users-list.html" class="button-secondary">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Restaurant Service</p>
+    </footer>
 </body>
+
 </html>

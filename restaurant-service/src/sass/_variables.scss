@@ -1,16 +1,69 @@
-$color-primary:   #3498db;
+// Color system
+$color-primary: #3498db;
 $color-secondary: #2ecc71;
-$color-error:     #e74c3c;
-$color-text:      #333;
-$font-stack:      'Helvetica Neue', sans-serif;
-$base-spacing:    1rem;
+$color-tertiary: #f39c12;
+$color-error: #e74c3c;
+$color-success: #2ecc71;
+$color-warning: #f1c40f;
+$color-text: #333333;
+$color-text-light: #6c757d;
 
-$background-color: #f8f9fa;
-$border-color: #dee2e6; 
+// Role-specific colors
+$color-admin: #9b59b6;
+$color-waiter: #3498db;
+$color-guest: #2ecc71;
 
-$font-stack: 'Helvetica Neue', Arial, sans-serif; 
-$font-size-base: 16px; 
-$border-radius: 4px;
+// Status colors
+$color-new: #f1c40f;
+$color-preparing: #e67e22;
+$color-ready: #3498db;
+$color-delivered: #2ecc71;
+$color-completed: #27ae60;
+$color-active: #2ecc71;
+$color-inactive: #95a5a6;
 
+// Background colors
+$background-color-light: #f8f9fa;
+$background-color-dark: #343a40;
+$border-color: #dee2e6;
+
+// Typography
+$font-stack: 'Helvetica Neue', Arial, sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+
+// Spacing
 $spacing-unit: 1rem;
-$max-width: 1200px;
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 3rem;
+
+// Borders & Shadows
+$border-radius: 4px;
+$border-radius-lg: 8px;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+// Layout
+$container-max-width: 1200px;
+$sidebar-width: 300px;
+$header-height: 70px;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Z-index scale
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal: 1040;
+$z-index-popover: 1050;
+$z-index-tooltip: 1060;

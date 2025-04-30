@@ -1,47 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Users List</title>
-  <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Users List</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-  <header>
-    <nav>
-      <a href="login.html">Home</a>
-      <a href="user-create.html">Create User</a>
-    </nav>
-  </header>
-  <main class="container">
-    <section id="users-list">
-      <h2>All Users</h2>
-      <table class="user-table">
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Role</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Example rows -->
-          <tr>
-            <td>alice</td>
-            <td>Admin</td>
-            <td><a href="user-info.html">View</a> | <a href="user-edit.html">Edit</a></td>
-          </tr>
-          <tr>
-            <td>bob</td>
-            <td>Regular</td>
-            <td><a href="user-info.html">View</a> | <a href="user-edit.html">Edit</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Restaurant Service</p>
-  </footer>
+    <header class="main-header">
+        <div class="container">
+            <h1>Restaurant Service</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="login.html">Home</a></li>
+                    <li><a href="user-create.html" class="button-primary">Create User</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="users-list" class="users-section">
+            <h2>Users Management</h2>
+
+            <!-- Filter controls -->
+            <div class="filter-controls">
+                <div class="search-box">
+                    <label for="search-users">Search:</label>
+                    <input type="text" id="search-users" placeholder="Enter username...">
+                </div>
+                <div class="filter-box">
+                    <label for="filter-role">Filter by role:</label>
+                    <select id="filter-role">
+                        <option value="all">All roles</option>
+                        <option value="admin">Administrator</option>
+                        <option value="waiter">Waiter</option>
+                        <option value="guest">Guest</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example rows with different user roles -->
+                        <tr class="admin-row">
+                            <td>alice</td>
+                            <td><span class="role-badge admin">Administrator</span></td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td class="actions-cell">
+                                <a href="user-info.html?id=1" class="action-link view">View</a>
+                                <a href="user-edit.html?id=1" class="action-link edit">Edit</a>
+                                <a href="#" class="action-link delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr class="waiter-row">
+                            <td>bob</td>
+                            <td><span class="role-badge waiter">Waiter</span></td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td class="actions-cell">
+                                <a href="user-info.html?id=2" class="action-link view">View</a>
+                                <a href="user-edit.html?id=2" class="action-link edit">Edit</a>
+                                <a href="#" class="action-link delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr class="guest-row">
+                            <td>carol</td>
+                            <td><span class="role-badge guest">Guest</span></td>
+                            <td><span class="status-badge inactive">Inactive</span></td>
+                            <td class="actions-cell">
+                                <a href="user-info.html?id=3" class="action-link view">View</a>
+                                <a href="user-edit.html?id=3" class="action-link edit">Edit</a>
+                                <a href="#" class="action-link delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr class="guest-row">
+                            <td>dave</td>
+                            <td><span class="role-badge guest">Guest</span></td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td class="actions-cell">
+                                <a href="user-info.html?id=4" class="action-link view">View</a>
+                                <a href="user-edit.html?id=4" class="action-link edit">Edit</a>
+                                <a href="#" class="action-link delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr class="waiter-row">
+                            <td>emily</td>
+                            <td><span class="role-badge waiter">Waiter</span></td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td class="actions-cell">
+                                <a href="user-info.html?id=5" class="action-link view">View</a>
+                                <a href="user-edit.html?id=5" class="action-link edit">Edit</a>
+                                <a href="#" class="action-link delete">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-link current">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">→</a>
+            </div>
+
+            <!-- Confirmation dialog for delete action -->
+            <div class="dialog-overlay hidden">
+                <div class="dialog" role="dialog" aria-labelledby="dialog-title">
+                    <h3 id="dialog-title">Confirm Delete</h3>
+                    <p>Are you sure you want to delete this user? This action cannot be undone.</p>
+                    <div class="dialog-buttons">
+                        <button class="button-danger">Delete</button>
+                        <button class="button-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service</p>
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiter Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Waiter Dashboard</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="orders.html">Orders</a></li>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="../logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Welcome message and quick stats -->
+        <section class="welcome-section">
+            <div class="info-card">
+                <div class="user-avatar">
+                    <img src="../img/avatar-placeholder.png" alt="Waiter avatar" class="avatar-img">
+                    <span class="role-badge waiter">Waiter</span>
+                </div>
+
+                <div class="user-info-details">
+                    <h2>Welcome, Bob!</h2>
+                    <p>Today is May 1, 2025 | <span class="current-time">14:30</span></p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-value">7</span>
+                            <span class="stat-label">Active Orders</span>
+                        </div>
+
+                        <div class="stat-card">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Tables Assigned</span>
+                        </div>
+
+                        <div class="stat-card">
+                            <span class="stat-value">12</span>
+                            <span class="stat-label">Orders Completed Today</span>
+                        </div>
+
+                        <div class="stat-card">
+                            <span class="stat-value">$345</span>
+                            <span class="stat-label">Total Sales Today</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <!-- Left side - Tables status -->
+            <aside class="sidebar">
+                <section class="tables-section">
+                    <h2>My Tables</h2>
+
+                    <div class="tables-grid">
+                        <div class="table-card active">
+                            <div class="table-header">
+                                <h3>Table 1</h3>
+                                <span class="status-badge active">Occupied</span>
+                            </div>
+                            <div class="table-details">
+                                <p><strong>Guests:</strong> 3</p>
+                                <p><strong>Time:</strong> 14:00 (30m)</p>
+                                <p><strong>Orders:</strong> 1 active</p>
+                            </div>
+                            <div class="table-actions">
+                                <a href="orders.html?table=1" class="button-primary">View Orders</a>
+                            </div>
+                        </div>
+
+                        <div class="table-card active">
+                            <div class="table-header">
+                                <h3>Table 3</h3>
+                                <span class="status-badge active">Occupied</span>
+                            </div>
+                            <div class="table-details">
+                                <p><strong>Guests:</strong> 4</p>
+                                <p><strong>Time:</strong> 13:45 (45m)</p>
+                                <p><strong>Orders:</strong> 2 active</p>
+                            </div>
+                            <div class="table-actions">
+                                <a href="orders.html?table=3" class="button-primary">View Orders</a>
+                            </div>
+                        </div>
+
+                        <div class="table-card">
+                            <div class="table-header">
+                                <h3>Table 5</h3>
+                                <span class="status-badge inactive">Available</span>
+                            </div>
+                            <div class="table-details">
+                                <p><strong>Guests:</strong> 0</p>
+                                <p><strong>Time:</strong> N/A</p>
+                                <p><strong>Orders:</strong> None</p>
+                            </div>
+                            <div class="table-actions">
+                                <a href="orders.html?table=5" class="button-secondary">New Order</a>
+                            </div>
+                        </div>
+
+                        <div class="table-card">
+                            <div class="table-header">
+                                <h3>Table 6</h3>
+                                <span class="status-badge inactive">Available</span>
+                            </div>
+                            <div class="table-details">
+                                <p><strong>Guests:</strong> 0</p>
+                                <p><strong>Time:</strong> N/A</p>
+                                <p><strong>Orders:</strong> None</p>
+                            </div>
+                            <div class="table-actions">
+                                <a href="orders.html?table=6" class="button-secondary">New Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right side - Recent activity and pending orders -->
+            <section class="main-content">
+                <div class="section-header">
+                    <h2>Recent Orders</h2>
+                    <div class="filter-controls">
+                        <div class="filter-box">
+                            <select id="filter-status">
+                                <option value="all">All Status</option>
+                                <option value="new" selected>New & Preparing</option>
+                                <option value="ready">Ready & Delivered</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-cards">
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-id">Order #1003</div>
+                            <div class="order-time">13:45</div>
+                            <span class="status-badge new">New</span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="order-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Table:</span>
+                                    <span class="detail-value">Table 1</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Guest:</span>
+                                    <span class="detail-value">Emma Wilson</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items-list">
+                                <ul>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Calamari</span>
+                                        <span class="item-status">New</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Spaghetti Carbonara</span>
+                                        <span class="item-status">New</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Coffee</span>
+                                        <span class="item-status">New</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <a href="order-details.html?id=1003" class="button-secondary">View Details</a>
+                            <a href="order-edit.html?id=1003" class="button-primary">Update Status</a>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-id">Order #1002</div>
+                            <div class="order-time">12:30</div>
+                            <span class="status-badge ready">Ready</span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="order-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Table:</span>
+                                    <span class="detail-value">Table 5</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Guest:</span>
+                                    <span class="detail-value">David Johnson</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items-list">
+                                <ul>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Margherita Pizza</span>
+                                        <span class="item-status ready">Ready to serve</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Chocolate Lava Cake</span>
+                                        <span class="item-status ready">Ready to serve</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Coffee</span>
+                                        <span class="item-status ready">Ready to serve</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <a href="order-details.html?id=1002" class="button-secondary">View Details</a>
+                            <a href="order-edit.html?id=1002" class="button-primary">Update Status</a>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-id">Order #1001</div>
+                            <div class="order-time">12:15</div>
+                            <span class="status-badge preparing">Preparing</span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="order-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Table:</span>
+                                    <span class="detail-value">Table 3</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Guest:</span>
+                                    <span class="detail-value">Carol Smith</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items-list">
+                                <ul>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Bruschetta</span>
+                                        <span class="item-status delivered">Delivered</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">2×</span>
+                                        <span class="item-name">Spaghetti Carbonara</span>
+                                        <span class="item-status preparing">Preparing</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">2×</span>
+                                        <span class="item-name">Soda</span>
+                                        <span class="item-status delivered">Delivered</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <a href="order-details.html?id=1001" class="button-secondary">View Details</a>
+                            <a href="order-edit.html?id=1001" class="button-primary">Update Status</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick action buttons -->
+                <div class="action-buttons">
+                    <a href="orders.html" class="button-primary">Create New Order</a>
+                    <a href="tables.html" class="button-secondary">Manage Tables</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service Application</p>
+        </div>
+    </footer>
+</body>
+
+</html>

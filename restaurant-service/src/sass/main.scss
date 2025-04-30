@@ -1,37 +1,744 @@
-// Replace imports with module uses
+@use 'sass:color';
 @use 'variables' as *;
 @use 'mixins' as *;
 
-// Global reset and base styles
+/* =============================
+   Base Styles
+   ============================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: $font-stack;
-  color: $color-text;
+    font-family: $font-stack;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    color: $color-text;
+    background-color: $background-color-light;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-// Container
+/* =============================
+   Typography
+   ============================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: $spacing-md;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: $font-size-xxl;
+}
+
+h2 {
+    font-size: $font-size-xl;
+}
+
+h3 {
+    font-size: $font-size-lg;
+}
+
+h4 {
+    font-size: $font-size-base;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: $spacing-md;
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+    @include transition;
+
+    &:hover {
+        color: color.adjust($color-primary, $lightness: -15%);
+        text-decoration: underline;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* =============================
+   Layout
+   ============================= */
+
 .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 $base-spacing;
+    width: 100%;
+    max-width: $container-max-width;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-md;
+    padding-left: $spacing-md;
 }
 
-// Buttons
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: $sidebar-width 1fr;
+    }
+}
+
+.sidebar {
+    background-color: white;
+    padding: $spacing-md;
+    border-radius: $border-radius;
+    @include box-shadow;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* =============================
+   Header & Navigation
+   ============================= */
+
+.main-header {
+    background-color: white;
+    border-bottom: 1px solid $border-color;
+    padding: $spacing-md 0;
+    margin-bottom: $spacing-lg;
+    @include box-shadow;
+
+    .container {
+        @include flex-between;
+        flex-wrap: wrap;
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    h1 {
+        margin-bottom: 0;
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: $spacing-sm;
+        }
+    }
+}
+
+.main-nav {
+    ul {
+        @include flex-center;
+        gap: $spacing-md;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $spacing-xs;
+        }
+    }
+
+    a {
+        display: inline-block;
+        padding: $spacing-xs $spacing-sm;
+        @include border-radius;
+
+        &.active {
+            background-color: $color-primary;
+            color: white;
+        }
+    }
+}
+
+/* =============================
+   Forms
+   ============================= */
+
+.form-container {
+    background-color: white;
+    border-radius: $border-radius;
+    padding: $spacing-lg;
+    margin-bottom: $spacing-lg;
+    @include box-shadow;
+}
+
+.form-group {
+    margin-bottom: $spacing-lg;
+}
+
+.form-field {
+    margin-bottom: $spacing-md;
+}
+
+.form-section {
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-lg;
+    padding: $spacing-md;
+    border: 1px solid $border-color;
+    @include border-radius;
+}
+
+label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    margin-bottom: $spacing-xs;
+    @include form-control;
+}
+
+.field-hint {
+    display: block;
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    margin-top: $spacing-xs;
+}
+
+.validation-error {
+    display: block;
+    color: $color-error;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.form-actions {
+    display: flex;
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+}
+
+/* =============================
+   Buttons
+   ============================= */
+
+.button-primary {
+    @include button-base;
+    @include button-variant($color-primary, $color-primary, white);
+}
+
 .button-secondary {
-  background: transparent;
-  border: 1px solid $color-primary;
-  color: $color-primary;
-  @include transition();
-  &:hover {
-    background: $color-primary;
-    color: #fff;
-  }
+    @include button-base;
+    @include button-variant(transparent, $color-primary, $color-primary);
+
+    &:hover {
+        background-color: $color-primary;
+        color: white;
+    }
 }
 
-// Responsive breakpoint example
-@media (max-width: 600px) {
-  .container {
-    padding: 0 0.5rem;
-  }
+.button-danger {
+    @include button-base;
+    @include button-variant($color-error, $color-error, white);
+}
+
+/* =============================
+   Tables
+   ============================= */
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: $spacing-lg;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: $spacing-sm;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+}
+
+th {
+    background-color: $background-color-light;
+    font-weight: 600;
+}
+
+.actions-cell {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+}
+
+.action-link {
+    padding: $spacing-xs $spacing-sm;
+    @include border-radius;
+    font-size: $font-size-sm;
+
+    &.view {
+        color: $color-primary;
+        background-color: rgba($color-primary, 0.1);
+    }
+
+    &.edit {
+        color: $color-secondary;
+        background-color: rgba($color-secondary, 0.1);
+    }
+
+    &.delete {
+        color: $color-error;
+        background-color: rgba($color-error, 0.1);
+    }
+}
+
+/* =============================
+   Badges & Status Indicators
+   ============================= */
+
+.role-badge {
+    @include badge(#6c757d);
+
+    &.admin {
+        @include badge($color-admin);
+    }
+
+    &.waiter {
+        @include badge($color-waiter);
+    }
+
+    &.guest {
+        @include badge($color-guest);
+    }
+}
+
+.status-badge {
+    @include badge(#6c757d);
+
+    &.active {
+        @include badge($color-active);
+    }
+
+    &.inactive {
+        @include badge($color-inactive);
+    }
+
+    &.new {
+        @include badge($color-new);
+    }
+
+    &.preparing {
+        @include badge($color-preparing);
+    }
+
+    &.ready {
+        @include badge($color-ready);
+    }
+
+    &.delivered {
+        @include badge($color-delivered);
+    }
+
+    &.completed {
+        @include badge($color-completed);
+    }
+}
+
+/* =============================
+   Cards & Info Display
+   ============================= */
+
+.info-card {
+    @include card;
+    padding: $spacing-md;
+    margin-bottom: $spacing-lg;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+}
+
+.user-avatar {
+    flex: 0 0 120px;
+    text-align: center;
+
+    .avatar-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: $spacing-sm;
+    }
+}
+
+.user-info-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: $spacing-sm;
+
+    .info-label {
+        font-weight: 600;
+        min-width: 120px;
+    }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: $spacing-md;
+    margin: $spacing-md 0 $spacing-lg;
+}
+
+.stat-card {
+    background-color: white;
+    padding: $spacing-md;
+    @include border-radius;
+    @include box-shadow;
+    text-align: center;
+
+    .stat-value {
+        display: block;
+        font-size: $font-size-xxl;
+        font-weight: 500;
+        color: $color-primary;
+        margin-bottom: $spacing-xs;
+    }
+
+    .stat-label {
+        color: $color-text-light;
+    }
+}
+
+/* =============================
+   Order System Specific Styles
+   ============================= */
+
+.menu-selection {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid $border-color;
+    @include border-radius;
+    padding: $spacing-sm;
+    margin-bottom: $spacing-md;
+}
+
+.menu-category {
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    h4 {
+        margin-bottom: $spacing-sm;
+        padding-bottom: $spacing-xs;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xs;
+    padding: $spacing-xs;
+
+    &:hover {
+        background-color: $background-color-light;
+    }
+
+    label {
+        flex: 1;
+        margin-bottom: 0;
+        font-weight: normal;
+    }
+
+    .item-quantity {
+        width: 60px;
+    }
+}
+
+.order-summary {
+    background-color: $background-color-light;
+    padding: $spacing-md;
+    @include border-radius;
+    margin-top: $spacing-md;
+    margin-bottom: $spacing-md;
+}
+
+.summary-row {
+    @include flex-between;
+    margin-bottom: $spacing-xs;
+
+    &.total {
+        margin-top: $spacing-sm;
+        padding-top: $spacing-sm;
+        border-top: 1px solid $border-color;
+        font-weight: bold;
+    }
+}
+
+.order-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+}
+
+.order-card {
+    @include card;
+    overflow: hidden;
+
+    &.past-order {
+        opacity: 0.8;
+    }
+}
+
+.order-header {
+    background-color: $background-color-light;
+    padding: $spacing-sm $spacing-md;
+    @include flex-between;
+    border-bottom: 1px solid $border-color;
+}
+
+.order-body {
+    padding: $spacing-md;
+}
+
+.order-footer {
+    padding: $spacing-sm $spacing-md;
+    background-color: $background-color-light;
+    border-top: 1px solid $border-color;
+    text-align: right;
+}
+
+.order-items {
+    padding-left: $spacing-md;
+    margin: $spacing-xs 0;
+
+    li {
+        margin-bottom: $spacing-xs;
+    }
+}
+
+.order-items-list {
+    margin: $spacing-sm 0;
+
+    h4 {
+        margin-bottom: $spacing-xs;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        display: grid;
+        grid-template-columns: 30px 1fr auto;
+        gap: $spacing-sm;
+        margin-bottom: $spacing-xs;
+        padding: $spacing-xs;
+        border-bottom: 1px dotted $border-color;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+/* =============================
+   Notifications & Dialogs
+   ============================= */
+
+.error-notification,
+.success-notification {
+    padding: $spacing-sm $spacing-md;
+    margin-bottom: $spacing-md;
+    @include border-radius;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.error-notification {
+    background-color: rgba($color-error, 0.1);
+    border: 1px solid rgba($color-error, 0.2);
+    color: $color-error;
+}
+
+.success-notification {
+    background-color: rgba($color-success, 0.1);
+    border: 1px solid rgba($color-success, 0.2);
+    color: $color-success;
+}
+
+.dialog-overlay {
+    @include overlay;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.dialog {
+    background-color: white;
+    @include border-radius;
+    @include box-shadow($box-shadow-lg);
+    padding: $spacing-lg;
+    max-width: 500px;
+    width: 90%;
+
+    .dialog-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: $spacing-sm;
+        margin-top: $spacing-md;
+    }
+}
+
+/* =============================
+   Pagination
+   ============================= */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-xs;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-lg;
+}
+
+.page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    border: 1px solid $border-color;
+    @include border-radius;
+    @include transition;
+
+    &.current {
+        background-color: $color-primary;
+        color: white;
+        border-color: $color-primary;
+    }
+
+    &:hover:not(.current) {
+        background-color: $background-color-light;
+        text-decoration: none;
+    }
+}
+
+/* =============================
+   Filter & Search Controls
+   ============================= */
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+
+    .search-box,
+    .filter-box {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+.section-header {
+    @include flex-between;
+    flex-wrap: wrap;
+    margin-bottom: $spacing-md;
+
+    h2 {
+        margin-bottom: $spacing-sm;
+    }
+
+    .filter-controls {
+        flex: 1;
+        justify-content: flex-end;
+    }
+}
+
+/* =============================
+   Responsiveness
+   ============================= */
+
+@include media-breakpoint-down(md) {
+    .form-actions {
+        flex-direction: column;
+
+        .button-primary,
+        .button-secondary {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .info-card {
+        flex-direction: column;
+
+        .user-avatar {
+            margin: 0 auto;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    h1 {
+        font-size: $font-size-xl;
+    }
+
+    h2 {
+        font-size: $font-size-lg;
+    }
+
+    .container {
+        padding-right: $spacing-sm;
+        padding-left: $spacing-sm;
+    }
+
+    .form-container {
+        padding: $spacing-md;
+    }
+
+    .order-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =============================
+   Footer
+   ============================= */
+
+footer {
+    margin-top: auto;
+    background-color: $background-color-dark;
+    color: white;
+    padding: $spacing-md 0;
+    text-align: center;
 }

@@ -1,0 +1,102 @@
+<!-- filepath: c:\Coding\semester4\web\restaurant-service\src\user-info.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Information</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Restaurant Service</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="users-list.html">← Back to Users</a></li>
+                    <li><a href="user-edit.html?id=2" class="button-primary">Edit User</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="user-info" class="user-details">
+            <h2>User Information</h2>
+
+            <div class="info-card">
+                <div class="user-avatar">
+                    <img src="img/avatar-placeholder.png" alt="User avatar" class="avatar-img">
+                    <span class="role-badge waiter">Waiter</span>
+                </div>
+
+                <div class="user-info-details">
+                    <div class="info-row">
+                        <span class="info-label">Username:</span>
+                        <span class="info-value">bob</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value"><span class="status-badge active">Active</span></span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Joined:</span>
+                        <span class="info-value">January 15, 2025</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Last Login:</span>
+                        <span class="info-value">April 30, 2025 (1 day ago)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional information based on role -->
+            <div class="role-specific-info">
+                <h3>Waiter Statistics</h3>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value">24</span>
+                        <span class="stat-label">Active Orders</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-value">142</span>
+                        <span class="stat-label">Completed Orders</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-value">4.8</span>
+                        <span class="stat-label">Rating</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Tables Assigned</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="action-buttons">
+                <a href="user-edit.html?id=2" class="button-primary">Edit User</a>
+                <a href="#" class="button-danger">Delete User</a>
+                <a href="users-list.html" class="button-secondary">Back to List</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service</p>
+        </div>
+    </footer>
+</body>
+
+</html>
