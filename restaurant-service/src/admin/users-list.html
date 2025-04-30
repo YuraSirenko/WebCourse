@@ -27,19 +27,27 @@
             <h2>Users Management</h2>
 
             <!-- Filter controls -->
-            <div class="filter-controls">
-                <div class="search-box">
-                    <label for="search-users">Search:</label>
-                    <input type="text" id="search-users" placeholder="Enter username...">
-                </div>
-                <div class="filter-box">
-                    <label for="filter-role">Filter by role:</label>
-                    <select id="filter-role">
-                        <option value="all">All roles</option>
-                        <option value="admin">Administrator</option>
-                        <option value="waiter">Waiter</option>
-                        <option value="guest">Guest</option>
-                    </select>
+            <div class="filter-controls-wrapper">
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <label for="search-users">Search:</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="search-users" placeholder="Enter username...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                    </div>
+                    <div class="filter-box">
+                        <label for="filter-role">Filter by role:</label>
+                        <select id="filter-role">
+                            <option value="all">All roles</option>
+                            <option value="admin">Administrator</option>
+                            <option value="waiter">Waiter</option>
+                            <option value="guest">Guest</option>
+                        </select>
+                    </div>
+                    <div class="filter-actions">
+                        <button type="button" class="button-secondary">Clear Filters</button>
+                    </div>
                 </div>
             </div>
 

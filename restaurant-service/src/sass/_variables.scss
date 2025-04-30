@@ -52,7 +52,7 @@ $box-shadow-lg: 0 5px 15px rgba(0, 0, 0, 0.1);
 // Layout
 $container-max-width: 1200px;
 $sidebar-width: 300px;
-$header-height: 70px;
+$header-height: 4.375rem; // Converting 70px to rem (70/16)
 
 // Breakpoints
 $breakpoint-sm: 576px;

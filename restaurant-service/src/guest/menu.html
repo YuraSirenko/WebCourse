@@ -1,49 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Menu</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
+
 <body>
-    <header>
-        <h1>Restaurant Menu</h1>
+    <header class="main-header">
+        <div class="container">
+            <h1>Our Menu</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" class="active">Menu</a></li>
+                    <li><a href="my-orders.html">My Orders</a></li>
+                    <li><a href="../logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <section class="menu">
-            <h2>Available Dishes</h2>
-            <ul>
-                <li>
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.</p>
-                    <span>Price: $12.99</span>
-                </li>
-                <li>
-                    <h3>Margherita Pizza</h3>
-                    <p>Traditional pizza topped with fresh tomatoes, mozzarella cheese, and basil.</p>
-                    <span>Price: $10.99</span>
-                </li>
-                <li>
-                    <h3>Caesar Salad</h3>
-                    <p>Crisp romaine lettuce, croutons, and parmesan cheese tossed in Caesar dressing.</p>
-                    <span>Price: $8.99</span>
-                </li>
-                <li>
-                    <h3>Grilled Salmon</h3>
-                    <p>Fresh salmon fillet grilled to perfection, served with seasonal vegetables.</p>
-                    <span>Price: $15.99</span>
-                </li>
-                <li>
-                    <h3>Chocolate Lava Cake</h3>
-                    <p>Decadent chocolate cake with a gooey molten center, served with vanilla ice cream.</p>
-                    <span>Price: $6.99</span>
-                </li>
-            </ul>
-        </section>
+
+    <main class="container">
+        <!-- Filter and search section -->
+        <div class="filter-controls-wrapper">
+            <div class="filter-controls">
+                <div class="search-box">
+                    <label for="search-menu">Search:</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="search-menu" placeholder="Search dishes...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <label for="filter-category">Category:</label>
+                    <select id="filter-category">
+                        <option value="all">All Categories</option>
+                        <option value="starters">Starters</option>
+                        <option value="main">Main Course</option>
+                        <option value="desserts">Desserts</option>
+                        <option value="drinks">Drinks</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Starters -->
+            <section class="menu-section">
+                <h2>Starters</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="../img/dishes/calamari.jpg" alt="Calamari">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Calamari</h3>
+                            <p>Crispy fried squid rings served with marinara sauce</p>
+                            <div class="menu-card-footer">
+                                <span class="price">$9.99</span>
+                                <button class="button-primary">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="../img/dishes/bruschetta.jpg" alt="Bruschetta">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Bruschetta</h3>
+                            <p>Toasted bread with fresh tomatoes, garlic, and basil</p>
+                            <div class="menu-card-footer">
+                                <span class="price">$7.99</span>
+                                <button class="button-primary">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Course -->
+            <section class="menu-section">
+                <h2>Main Course</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="../img/dishes/carbonara.jpg" alt="Spaghetti Carbonara">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Spaghetti Carbonara</h3>
+                            <p>Classic Italian pasta with eggs, cheese, pancetta, and pepper</p>
+                            <div class="menu-card-footer">
+                                <span class="price">$12.99</span>
+                                <button class="button-primary">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="../img/dishes/pizza.jpg" alt="Margherita Pizza">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Margherita Pizza</h3>
+                            <p>Fresh tomatoes, mozzarella cheese, and basil</p>
+                            <div class="menu-card-footer">
+                                <span class="price">$10.99</span>
+                                <button class="button-primary">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="../img/dishes/salmon.jpg" alt="Grilled Salmon">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Grilled Salmon</h3>
+                            <p>Fresh salmon fillet with seasonal vegetables</p>
+                            <div class="menu-card-footer">
+                                <span class="price">$15.99</span>
+                                <button class="button-primary">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desserts -->
+            <section class="menu-section">
+                <h2>Desserts</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="../img/dishes/lava-cake.jpg" alt="Chocolate Lava Cake">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Chocolate Lava Cake</h3>
+                            <p>Warm chocolate cake with a molten center</p>
+                            <div class="menu-card-footer">
+                                <span class="price">$6.99</span>
+                                <button class="button-primary">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Cart Preview -->
+        <div class="cart-preview">
+            <h3>Your Order</h3>
+            <div class="cart-items">
+                <!-- Items will be added here dynamically -->
+                <p class="cart-empty">Your cart is empty</p>
+            </div>
+            <div class="cart-summary hidden">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax:</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span>$0.00</span>
+                </div>
+                <button class="button-primary">Place Order</button>
+            </div>
+        </div>
     </main>
+
     <footer>
-        <p>&copy; 2023 Restaurant Service Application</p>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service</p>
+        </div>
     </footer>
 </body>
+
 </html>

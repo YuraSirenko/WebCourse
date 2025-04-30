@@ -656,16 +656,64 @@ th {
    Filter & Search Controls
    ============================= */
 
+.filter-controls-wrapper {
+    background-color: white;
+    padding: $spacing-md;
+    border-radius: $border-radius;
+    margin-bottom: $spacing-lg;
+    @include box-shadow;
+}
+
 .filter-controls {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: $spacing-md;
-    margin-bottom: $spacing-md;
+    align-items: end;
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include media-breakpoint-down(sm) {
+        grid-template-columns: 1fr;
+    }
 
     .search-box,
     .filter-box {
-        flex: 1;
-        min-width: 200px;
+        min-width: 0;
+    }
+
+    .filter-actions {
+        display: flex;
+        justify-content: flex-end;
+
+        @include media-breakpoint-down(sm) {
+            justify-content: flex-start;
+        }
+    }
+
+    label {
+        margin-bottom: $spacing-xs;
+        color: $color-text-light;
+        font-weight: 500;
+        font-size: $font-size-sm;
+    }
+}
+
+.input-with-icon {
+    position: relative;
+
+    input {
+        padding-right: 2.5rem;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $color-text-light;
+        pointer-events: none;
     }
 }
 
@@ -741,4 +789,508 @@ footer {
     color: white;
     padding: $spacing-md 0;
     text-align: center;
+}
+
+/* =============================
+   Login Page Styles
+   ============================= */
+
+.login-page {
+    background-color: $background-color-light;
+
+    .login-header {
+        text-align: center;
+        padding: $spacing-lg 0;
+        margin-bottom: $spacing-md;
+
+        h1 {
+            color: $color-primary;
+            font-weight: 600;
+        }
+    }
+}
+
+.login-form-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: $spacing-md 0 $spacing-xl;
+
+    .form-container {
+        padding: $spacing-lg;
+        border-radius: $border-radius-lg;
+        box-shadow: $box-shadow-lg;
+        background-color: white;
+    }
+
+    h2 {
+        color: $color-text;
+        text-align: center;
+        margin-bottom: $spacing-xs;
+    }
+
+    .login-subtitle {
+        text-align: center;
+        color: $color-text-light;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-lg;
+
+    .checkbox-label {
+        display: inline;
+        margin-left: $spacing-xs;
+        font-weight: normal;
+    }
+
+    .forgot-password {
+        font-size: $font-size-sm;
+    }
+}
+
+.login-button {
+    width: 100%;
+    padding: $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: $font-size-lg;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($color-primary, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    .login-icon {
+        margin-right: $spacing-sm;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover .login-icon {
+        transform: translateX(3px);
+    }
+
+    .login-text {
+        font-weight: 500;
+    }
+}
+
+/* =============================
+   Menu Page Styles
+   ============================= */
+
+.menu-grid {
+    display: grid;
+    gap: $spacing-xl;
+    margin-bottom: $spacing-lg;
+}
+
+.menu-section {
+    h2 {
+        border-bottom: 2px solid $color-primary;
+        padding-bottom: $spacing-sm;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $spacing-lg;
+}
+
+.menu-card {
+    @include card;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-card-image {
+        height: 200px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    .menu-card-content {
+        padding: $spacing-md;
+
+        h3 {
+            margin-bottom: $spacing-xs;
+            color: $color-text;
+        }
+
+        p {
+            color: $color-text-light;
+            font-size: $font-size-sm;
+            margin-bottom: $spacing-md;
+            min-height: 48px;
+        }
+    }
+
+    .menu-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: $spacing-sm;
+        border-top: 1px solid $border-color;
+
+        .price {
+            font-size: $font-size-lg;
+            font-weight: 600;
+            color: $color-primary;
+        }
+
+        .button-primary {
+            padding: $spacing-xs $spacing-md;
+        }
+    }
+}
+
+.cart-preview {
+    position: fixed;
+    top: $header-height + $spacing-md;
+    right: $spacing-md;
+    width: 300px;
+    background: white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-lg;
+    padding: $spacing-md;
+
+    h3 {
+        margin-bottom: $spacing-md;
+        padding-bottom: $spacing-xs;
+        border-bottom: 1px solid $border-color;
+    }
+
+    .cart-empty {
+        text-align: center;
+        color: $color-text-light;
+        padding: $spacing-lg 0;
+    }
+
+    .cart-items {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .cart-summary {
+        margin-top: $spacing-md;
+        padding-top: $spacing-md;
+        border-top: 1px solid $border-color;
+
+        .button-primary {
+            width: 100%;
+            margin-top: $spacing-md;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .cart-preview {
+        position: static;
+        width: 100%;
+        margin-top: $spacing-lg;
+    }
+
+    .menu-items {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =============================
+   Admin Dashboard Styles
+   ============================= */
+
+.admin-dashboard {
+    background-color: $background-color-light;
+
+    .header-content {
+        @include flex-between;
+        padding: $spacing-sm 0;
+    }
+
+    .admin-profile {
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+
+        .admin-name {
+            font-weight: 500;
+        }
+
+        .logout-link {
+            color: $color-error;
+
+            &:hover {
+                color: color.adjust($color-error, $lightness: -15%);
+            }
+        }
+    }
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: $sidebar-width 1fr;
+    min-height: calc(100vh - $header-height);
+
+    @include media-breakpoint-down(lg) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-sidebar {
+    background-color: white;
+    border-right: 1px solid $border-color;
+    padding: $spacing-md;
+
+    @include media-breakpoint-down(lg) {
+        border-right: none;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+.dashboard-nav {
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs;
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        padding: $spacing-sm $spacing-md;
+        color: $color-text;
+        border-radius: $border-radius;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgba($color-primary, 0.1);
+            color: $color-primary;
+            text-decoration: none;
+        }
+
+        &.active {
+            background-color: $color-primary;
+            color: white;
+        }
+
+        .nav-icon {
+            font-size: 1.2em;
+        }
+    }
+}
+
+.dashboard-main {
+    padding: $spacing-lg;
+
+    @include media-breakpoint-down(md) {
+        padding: $spacing-md;
+    }
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+
+    @include media-breakpoint-down(lg) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-section {
+    background-color: white;
+    border-radius: $border-radius;
+    padding: $spacing-md;
+    @include box-shadow;
+
+    .section-header {
+        @include flex-between;
+        margin-bottom: $spacing-md;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.dashboard-table {
+    width: 100%;
+
+    th {
+        background-color: $background-color-light;
+        padding: $spacing-sm;
+        font-weight: 600;
+    }
+
+    td {
+        padding: $spacing-sm;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+.staff-grid {
+    display: grid;
+    gap: $spacing-md;
+}
+
+.staff-card {
+    background-color: white;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: $spacing-md;
+
+    .staff-info {
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+        margin-bottom: $spacing-md;
+    }
+
+    .staff-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .staff-details {
+        h3 {
+            margin: 0;
+            font-size: $font-size-base;
+        }
+    }
+
+    .staff-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-sm;
+        margin-bottom: $spacing-sm;
+
+        .stat {
+            text-align: center;
+
+            .stat-value {
+                display: block;
+                font-size: $font-size-lg;
+                font-weight: 600;
+                color: $color-primary;
+            }
+
+            .stat-label {
+                font-size: $font-size-sm;
+                color: $color-text-light;
+            }
+        }
+    }
+
+    .staff-status {
+        text-align: center;
+        padding: $spacing-xs;
+        border-radius: $border-radius;
+        font-size: $font-size-sm;
+
+        &.online {
+            background-color: rgba($color-success, 0.1);
+            color: $color-success;
+        }
+
+        &.offline {
+            background-color: rgba($color-text-light, 0.1);
+            color: $color-text-light;
+        }
+    }
+}
+
+.activity-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-md;
+    padding: $spacing-sm;
+    border-radius: $border-radius;
+    background-color: $background-color-light;
+
+    .activity-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 50%;
+        font-size: 1.2em;
+    }
+
+    .activity-content {
+        flex: 1;
+
+        .activity-text {
+            margin: 0;
+
+            strong {
+                color: $color-primary;
+            }
+        }
+
+        .activity-details {
+            margin: $spacing-xs 0;
+            color: $color-text-light;
+            font-size: $font-size-sm;
+        }
+
+        .activity-time {
+            font-size: $font-size-sm;
+            color: $color-text-light;
+        }
+    }
 }
