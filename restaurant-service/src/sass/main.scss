@@ -1434,3 +1434,218 @@ footer {
     color: $color-text-light;
     margin-top: $spacing-xs;
 }
+
+/* =============================
+   Admin User Management
+   ============================= */
+
+.admin-page {
+    background-color: $background-color-light;
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+    }
+}
+
+.profile-card {
+    background-color: white;
+    border-radius: $border-radius;
+    @include box-shadow;
+    overflow: hidden;
+
+    .profile-header {
+        padding: $spacing-lg;
+        background: linear-gradient(to right, $color-primary, color.adjust($color-primary, $lightness: 10%));
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: $spacing-lg;
+    }
+
+    .profile-image {
+        position: relative;
+
+        .avatar-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            object-fit: cover;
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid white;
+
+            &.active {
+                background-color: $color-success;
+            }
+
+            &.inactive {
+                background-color: $color-text-light;
+            }
+        }
+    }
+
+    .profile-info {
+        h2 {
+            margin: 0 0 $spacing-xs;
+            color: white;
+        }
+    }
+
+    .profile-badges {
+        display: flex;
+        gap: $spacing-xs;
+    }
+
+    .profile-details {
+        padding: $spacing-lg;
+    }
+}
+
+.detail-section {
+    margin-bottom: $spacing-lg;
+
+    h3 {
+        margin-bottom: $spacing-md;
+        padding-bottom: $spacing-xs;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-md;
+}
+
+.detail-item {
+    .detail-label {
+        display: block;
+        font-size: $font-size-sm;
+        color: $color-text-light;
+        margin-bottom: $spacing-xs;
+    }
+
+    .detail-value {
+        font-weight: 500;
+    }
+}
+
+.edit-profile-card {
+    background-color: white;
+    border-radius: $border-radius;
+    padding: $spacing-lg;
+    @include box-shadow;
+
+    .profile-image-upload {
+        text-align: center;
+        margin-bottom: $spacing-lg;
+
+        .avatar-preview {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: $spacing-sm;
+            border: 2px solid $border-color;
+        }
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-md;
+}
+
+.input-with-icon {
+    position: relative;
+
+    input,
+    select {
+        width: 100%;
+        padding-right: 2.5rem;
+    }
+
+    .input-icon {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $color-text-light;
+        pointer-events: none;
+    }
+}
+
+.form-section {
+    margin-bottom: $spacing-lg;
+    padding: $spacing-md;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+
+    h3 {
+        margin-bottom: $spacing-md;
+        color: $color-text;
+    }
+
+    &.role-specific {
+        background-color: $background-color-light;
+    }
+}
+
+.profile-actions {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    background-color: $background-color-light;
+    border-top: 1px solid $border-color;
+}
+
+// User list table improvements
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.action-icon {
+    margin-right: $spacing-xs;
+}
+
+// Responsive adjustments
+@include media-breakpoint-down(md) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+
+        .button-primary,
+        .button-secondary,
+        .button-danger {
+            width: 100%;
+        }
+    }
+}
