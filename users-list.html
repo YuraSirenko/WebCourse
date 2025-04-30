@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Users List</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="login.html">Home</a>
+      <a href="user-create.html">Create User</a>
+    </nav>
+  </header>
+  <main class="container">
+    <section id="users-list">
+      <h2>All Users</h2>
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example rows -->
+          <tr>
+            <td>alice</td>
+            <td>Admin</td>
+            <td><a href="user-info.html">View</a> | <a href="user-edit.html">Edit</a></td>
+          </tr>
+          <tr>
+            <td>bob</td>
+            <td>Regular</td>
+            <td><a href="user-info.html">View</a> | <a href="user-edit.html">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Restaurant Service</p>
+  </footer>
+</body>
+</html>
