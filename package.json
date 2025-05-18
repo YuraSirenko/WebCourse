@@ -1,0 +1,28 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint **/*.js --ignore-pattern node_modules/",
+    "start": "http-server . -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuraSirenko/WebCourse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuraSirenko/WebCourse/issues"
+  },
+  "homepage": "https://github.com/YuraSirenko/WebCourse#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.31.0",
+    "http-server": "^14.1.1"
+  }
+}
