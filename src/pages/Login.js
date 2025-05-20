@@ -10,22 +10,20 @@ const Login = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setCredentials((prev) => ({ ...prev, [name]: value }));
-        // Clear error when user types
         if (error) setError('');
-    };    const handleSubmit = async (e) => {
+    }; const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        
+
         try {
             await login(credentials);
-            // No need to navigate, AuthContext handles that
         } catch (err) {
             setError(err.message || 'Login failed. Please check your credentials.');
         } finally {
             setIsLoading(false);
         }
     };
-    
+
     return (
         <div className="login-container">
             <h2>Login</h2>
@@ -53,9 +51,49 @@ const Login = () => {
                     required
                 />
 
-                <button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Logging in...' : 'Login'}
-                </button>
+                <div style={{ display: 'flex', gap: 12, marginTop: 12 }}>
+                    <button
+                        type="submit"
+                        disabled={isLoading}
+                        style={{
+                            flex: 2,
+                            background: 'linear-gradient(90deg, #1976d2 60%, #2196f3 100%)',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: 18,
+                            padding: '12px 0',
+                            fontWeight: 600,
+                            fontSize: 18,
+                            boxShadow: '0 2px 8px rgba(25, 118, 210, 0.08)',
+                            cursor: isLoading ? 'not-allowed' : 'pointer',
+                            transition: 'background 0.2s',
+                            outline: 'none',
+                        }}
+                    >
+                        {isLoading ? 'Logging in...' : 'Login'}
+                    </button>
+                    <button
+                        type="button"
+                        className="register-button"
+                        style={{
+                            flex: 1,
+                            background: 'linear-gradient(90deg, #2196f3 60%, #64b5f6 100%)',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: 18,
+                            padding: '12px 0',
+                            fontWeight: 600,
+                            fontSize: 16,
+                            boxShadow: '0 2px 8px rgba(33, 150, 243, 0.08)',
+                            cursor: 'pointer',
+                            marginLeft: 0,
+                            outline: 'none',
+                        }}
+                        onClick={() => window.location.href = '/register'}
+                    >
+                        Register
+                    </button>
+                </div>
             </form>
             <div className="login-help">
                 <p>Demo accounts:</p>

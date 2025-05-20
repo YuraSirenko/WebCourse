@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { fetchUsers, deleteUser } from '../services/api';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const UsersList = () => {
+    const { user, ROLES } = useContext(AuthContext);
     const [users, setUsers] = useState([]);
 
     const loadUsers = async () => {
@@ -20,7 +22,6 @@ const UsersList = () => {
     }, []);
 
     const handleDelete = async (id) => {
-        // eslint-disable-next-line no-restricted-globals
         if (confirm('Delete this user?')) {
             try {
                 await deleteUser(id);
@@ -35,9 +36,11 @@ const UsersList = () => {
     return (
         <div className="users-list">
             <h2>Users</h2>
-            <Link to="/users/new" className="btn">
-                + New User
-            </Link>
+            {user && user.role === ROLES.ADMIN && (
+                <Link to="/users/new" className="btn">
+                    + New User
+                </Link>
+            )}
             <table>
                 <thead>
                     <tr>
@@ -52,16 +55,20 @@ const UsersList = () => {
                             <td>{u.username}</td>
                             <td>{u.role}</td>
                             <td>
-                                <Link to={`/users/${u.id}`} className="btn-sm">
-                                    Edit
-                                </Link>
-                                <button
-                                    type="button"
-                                    className="btn-sm btn-danger"
-                                    onClick={() => handleDelete(u.id)}
-                                >
-                                    Delete
-                                </button>
+                                {user && user.role === ROLES.ADMIN && (
+                                    <>
+                                        <Link to={`/users/${u.id}`} className="btn-sm">
+                                            Edit
+                                        </Link>
+                                        <button
+                                            type="button"
+                                            className="btn-sm btn-danger"
+                                            onClick={() => handleDelete(u.id)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </>
+                                )}
                             </td>
                         </tr>
                     ))}

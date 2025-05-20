@@ -9,8 +9,6 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
     <React.StrictMode>
-        {/* Wrap AuthProvider inside BrowserRouter so useNavigate works correctly */}
-        {/* Serve at root URL */}
         <BrowserRouter basename="/">
             <AuthProvider>
                 <AppRouter />
