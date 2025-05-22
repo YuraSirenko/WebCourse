@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit User - Restaurant Service</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body class="admin-page">
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Edit User</h1>
+                <div class="header-actions">
+                    <a href="user-info.html?id=2" class="button-secondary">
+                        <span class="action-icon">👁️</span>
+                        View Profile
+                    </a>
+                    <a href="../logout.html" class="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="dashboard-sidebar">
+                <nav class="dashboard-nav">
+                    <ul>
+                        <li><a href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a></li>
+                        <li><a href="users-list.html" class="active"><span class="nav-icon">👥</span>Users</a></li>
+                        <li><a href="orders.html"><span class="nav-icon">🍽️</span>Orders</a></li>
+                        <li><a href="menu.html"><span class="nav-icon">📝</span>Menu</a></li>
+                        <li><a href="reports.html"><span class="nav-icon">📈</span>Reports</a></li>
+                        <li><a href="settings.html"><span class="nav-icon">⚙️</span>Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="dashboard-main">
+                <!-- Success notification -->
+                <div class="success-notification">
+                    <p>User successfully updated!</p>
+                </div>
+
+                <!-- Error notification - hidden by default -->
+                <div class="error-notification hidden">
+                    <p>There was a problem updating the user. Please check the form and try again.</p>
+                </div>
+
+                <div class="edit-profile-card">
+                    <form action="/users/update" method="POST" class="form-group">
+                        <div class="profile-image-upload">
+                            <img src="../img/avatars/bob.jpg" alt="Current profile picture" class="avatar-preview">
+                            <div class="upload-controls">
+                                <label for="profile-image" class="button-secondary">
+                                    <span class="action-icon">📷</span>
+                                    Change Photo
+                                </label>
+                                <input type="file" id="profile-image" name="profile-image" accept="image/*"
+                                    class="hidden">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Basic Information</h3>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="username">Username</label>
+                                    <div class="input-with-icon">
+                                        <input type="text" id="username" name="username" value="bob" required>
+                                        <span class="input-icon">👤</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="email">Email</label>
+                                    <div class="input-with-icon">
+                                        <input type="email" id="email" name="email" value="bob@restaurant.com" required>
+                                        <span class="input-icon">📧</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="phone">Phone</label>
+                                    <div class="input-with-icon">
+                                        <input type="tel" id="phone" name="phone" value="+1 (555) 123-4567">
+                                        <span class="input-icon">📞</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="status">Status</label>
+                                    <select id="status" name="status">
+                                        <option value="active" selected>Active</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="role">Role</label>
+                                    <select id="role" name="role" required>
+                                        <option value="admin">Administrator</option>
+                                        <option value="waiter" selected>Waiter</option>
+                                        <option value="guest">Guest</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Change Password</h3>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="current-password">Current Password</label>
+                                    <div class="input-with-icon">
+                                        <input type="password" id="current-password" name="currentPassword">
+                                        <span class="input-icon">🔒</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="new-password">New Password</label>
+                                    <div class="input-with-icon">
+                                        <input type="password" id="new-password" name="newPassword">
+                                        <span class="input-icon">🔑</span>
+                                    </div>
+                                    <span class="field-hint">Leave blank to keep current password</span>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="confirm-password">Confirm New Password</label>
+                                    <div class="input-with-icon">
+                                        <input type="password" id="confirm-password" name="confirmPassword">
+                                        <span class="input-icon">🔑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Role-specific settings for Waiter -->
+                        <div class="form-section role-specific waiter-settings">
+                            <h3>Waiter Settings</h3>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="assigned-tables">Assigned Tables</label>
+                                    <div class="input-with-icon">
+                                        <input type="text" id="assigned-tables" name="assignedTables"
+                                            value="3, 5, 7, 12">
+                                        <span class="input-icon">🪑</span>
+                                    </div>
+                                    <span class="field-hint">Enter table numbers separated by commas</span>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="schedule">Working Schedule</label>
+                                    <select id="schedule" name="schedule">
+                                        <option value="morning">Morning Shift (6AM-2PM)</option>
+                                        <option value="afternoon" selected>Afternoon Shift (2PM-10PM)</option>
+                                        <option value="night">Night Shift (10PM-6AM)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="button-primary">Save Changes</button>
+                            <a href="user-info.html?id=2" class="button-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service</p>
+        </div>
+    </footer>
+</body>
+
+</html>

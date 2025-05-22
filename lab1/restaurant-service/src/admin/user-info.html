@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Information - Restaurant Service</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body class="admin-page">
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>User Information</h1>
+                <div class="header-actions">
+                    <a href="user-edit.html?id=2" class="button-primary">
+                        <span class="action-icon">✏️</span>
+                        Edit User
+                    </a>
+                    <a href="../logout.html" class="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="dashboard-sidebar">
+                <nav class="dashboard-nav">
+                    <ul>
+                        <li><a href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a></li>
+                        <li><a href="users-list.html" class="active"><span class="nav-icon">👥</span>Users</a></li>
+                        <li><a href="orders.html"><span class="nav-icon">🍽️</span>Orders</a></li>
+                        <li><a href="menu.html"><span class="nav-icon">📝</span>Menu</a></li>
+                        <li><a href="reports.html"><span class="nav-icon">📈</span>Reports</a></li>
+                        <li><a href="settings.html"><span class="nav-icon">⚙️</span>Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="dashboard-main">
+                <!-- User Profile Card -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            <img src="../img/avatars/bob.jpg" alt="Bob's profile" class="avatar-img">
+                            <div class="status-indicator active" title="Online"></div>
+                        </div>
+                        <div class="profile-info">
+                            <h2>Bob Smith</h2>
+                            <div class="profile-badges">
+                                <span class="role-badge waiter">Waiter</span>
+                                <span class="status-badge active">Active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-section">
+                            <h3>Basic Information</h3>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Username</span>
+                                    <span class="detail-value">bob</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Email</span>
+                                    <span class="detail-value">bob@restaurant.com</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Phone</span>
+                                    <span class="detail-value">+1 (555) 123-4567</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Joined Date</span>
+                                    <span class="detail-value">January 15, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h3>Performance Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon orders">🍽️</div>
+                                    <div class="stat-content">
+                                        <span class="stat-value">142</span>
+                                        <span class="stat-label">Total Orders</span>
+                                    </div>
+                                    <div class="stat-change positive">+12.5%</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon rating">⭐</div>
+                                    <div class="stat-content">
+                                        <span class="stat-value">4.8</span>
+                                        <span class="stat-label">Average Rating</span>
+                                    </div>
+                                    <div class="stat-change positive">+0.3</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon sales">💰</div>
+                                    <div class="stat-content">
+                                        <span class="stat-value">$3,450</span>
+                                        <span class="stat-label">Monthly Sales</span>
+                                    </div>
+                                    <div class="stat-change positive">+15.2%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h3>Recent Activity</h3>
+                            <div class="activity-timeline">
+                                <div class="activity-item">
+                                    <div class="activity-icon order-created">🆕</div>
+                                    <div class="activity-content">
+                                        <p class="activity-text"><strong>Created new order</strong> for Table 5</p>
+                                        <p class="activity-details">Order #1234 - $45.99</p>
+                                        <span class="activity-time">5 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon status-update">✅</div>
+                                    <div class="activity-content">
+                                        <p class="activity-text"><strong>Completed order</strong> for Table 3</p>
+                                        <p class="activity-details">Order #1233 - $32.50</p>
+                                        <span class="activity-time">15 minutes ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <a href="user-edit.html?id=2" class="button-primary">Edit Profile</a>
+                        <button class="button-danger">Delete User</button>
+                        <a href="users-list.html" class="button-secondary">Back to List</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+// Flex utilities
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Transitions
+@mixin transition($props: all, $time: 0.3s, $ease: ease-in-out) {
+  transition: $props $time $ease;
+}
+
+// Box shadow
+@mixin box-shadow($shadow: 0 2px 4px rgba(0, 0, 0, 0.1)) {
+  box-shadow: $shadow;
+}
+
+// Border radius
+@mixin border-radius($radius: 0.25rem) {
+  border-radius: $radius;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Button styles
+@mixin button-base {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  @include border-radius;
+  @include transition;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    outline: 0;
+  }
+}
+
+@mixin button-variant($background, $border, $color) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus {
+    color: $color;
+    background-color: color.adjust($background, $lightness: -10%);
+    border-color: color.adjust($border, $lightness: -12%);
+  }
+}
+
+// Form controls
+@mixin form-control {
+  display: block;
+  width: 100%;
+  padding: $spacing-sm;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $color-text;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid $border-color;
+  @include border-radius;
+  @include transition(border-color);
+
+  &:focus {
+    border-color: $color-primary;
+    outline: 0;
+  }
+}
+
+// Badge styles
+@mixin badge($bg-color, $text-color: white) {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  @include border-radius($border-radius);
+  color: $text-color;
+  background-color: $bg-color;
+}
+
+// Card styles
+@mixin card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid $border-color;
+  @include border-radius($border-radius);
+  @include box-shadow;
+}
+
+// Media queries
+@mixin media-breakpoint-up($breakpoint) {
+  @if $breakpoint ==sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if $breakpoint ==xs {
+    @media (max-width: $breakpoint-sm - 1) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==sm {
+    @media (max-width: $breakpoint-md - 1) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==md {
+    @media (max-width: $breakpoint-lg - 1) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==lg {
+    @media (max-width: $breakpoint-xl - 1) {
+      @content;
+    }
+  }
+}
+
+// Overlay for modals and dialogs
+@mixin overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-index-modal;
+}
+
+// Truncate text with ellipsis
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Restaurant Service</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body class="admin-dashboard">
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Admin Dashboard</h1>
+                <div class="admin-profile">
+                    <span class="admin-name">Admin</span>
+                    <span class="role-badge admin">Administrator</span>
+                    <a href="../logout.html" class="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+            <nav class="dashboard-nav">
+                <ul>
+                    <li><a href="#" class="active"><span class="nav-icon">📊</span>Dashboard</a></li>
+                    <li><a href="../admin/users-list.html"><span class="nav-icon">👥</span>Users</a></li>
+                    <li><a href="#orders"><span class="nav-icon">🍽️</span>Orders</a></li>
+                    <li><a href="#menu"><span class="nav-icon">📝</span>Menu</a></li>
+                    <li><a href="#reports"><span class="nav-icon">📈</span>Reports</a></li>
+                    <li><a href="#settings"><span class="nav-icon">⚙️</span>Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="container">
+                <!-- Quick Stats -->
+                <section class="quick-stats">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon orders">🍽️</div>
+                            <div class="stat-content">
+                                <span class="stat-value">127</span>
+                                <span class="stat-label">Active Orders</span>
+                            </div>
+                            <div class="stat-change positive">+12.5%</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon users">👥</div>
+                            <div class="stat-content">
+                                <span class="stat-value">45</span>
+                                <span class="stat-label">Total Users</span>
+                            </div>
+                            <div class="stat-change positive">+5.2%</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon revenue">💰</div>
+                            <div class="stat-content">
+                                <span class="stat-value">$2,459</span>
+                                <span class="stat-label">Today's Revenue</span>
+                            </div>
+                            <div class="stat-change positive">+8.3%</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon tables">🪑</div>
+                            <div class="stat-content">
+                                <span class="stat-value">15/20</span>
+                                <span class="stat-label">Tables Occupied</span>
+                            </div>
+                            <div class="stat-change neutral">75%</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activity and Orders -->
+                <div class="dashboard-grid">
+                    <!-- Recent Orders -->
+                    <section class="dashboard-section orders-section">
+                        <div class="section-header">
+                            <h2>Recent Orders</h2>
+                            <a href="#" class="button-secondary">View All Orders</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Table</th>
+                                        <th>Server</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1234</td>
+                                        <td>Table 5</td>
+                                        <td>John Smith</td>
+                                        <td>$45.99</td>
+                                        <td><span class="status-badge preparing">Preparing</span></td>
+                                        <td class="actions-cell">
+                                            <a href="#" class="action-link view">View</a>
+                                            <a href="#" class="action-link edit">Edit</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1233</td>
+                                        <td>Table 3</td>
+                                        <td>Emily Davis</td>
+                                        <td>$32.50</td>
+                                        <td><span class="status-badge ready">Ready</span></td>
+                                        <td class="actions-cell">
+                                            <a href="#" class="action-link view">View</a>
+                                            <a href="#" class="action-link edit">Edit</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Staff Activity -->
+                    <section class="dashboard-section staff-section">
+                        <div class="section-header">
+                            <h2>Staff Activity</h2>
+                            <a href="#" class="button-secondary">View All Staff</a>
+                        </div>
+                        <div class="staff-grid">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <img src="../img/avatars/default.png" alt="Staff member" class="staff-avatar">
+                                    <div class="staff-details">
+                                        <h3>John Smith</h3>
+                                        <span class="role-badge waiter">Waiter</span>
+                                    </div>
+                                </div>
+                                <div class="staff-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">12</span>
+                                        <span class="stat-label">Active Orders</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">$456</span>
+                                        <span class="stat-label">Sales Today</span>
+                                    </div>
+                                </div>
+                                <div class="staff-status online">Online</div>
+                            </div>
+
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <img src="../img/avatars/default.png" alt="Staff member" class="staff-avatar">
+                                    <div class="staff-details">
+                                        <h3>Emily Davis</h3>
+                                        <span class="role-badge waiter">Waiter</span>
+                                    </div>
+                                </div>
+                                <div class="staff-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">8</span>
+                                        <span class="stat-label">Active Orders</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">$389</span>
+                                        <span class="stat-label">Sales Today</span>
+                                    </div>
+                                </div>
+                                <div class="staff-status online">Online</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Recent User Activity -->
+                <section class="dashboard-section activity-section">
+                    <div class="section-header">
+                        <h2>Recent Activity</h2>
+                        <a href="#" class="button-secondary">View All Activity</a>
+                    </div>
+                    <div class="activity-timeline">
+                        <div class="activity-item">
+                            <div class="activity-icon order-created">🆕</div>
+                            <div class="activity-content">
+                                <p class="activity-text"><strong>New Order Created</strong> by John Smith</p>
+                                <p class="activity-details">Table 5 - Order #1234</p>
+                                <span class="activity-time">5 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon status-update">🔄</div>
+                            <div class="activity-content">
+                                <p class="activity-text"><strong>Order Status Updated</strong> by Emily Davis</p>
+                                <p class="activity-details">Order #1233 marked as Ready</p>
+                                <span class="activity-time">15 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon payment">💰</div>
+                            <div class="activity-content">
+                                <p class="activity-text"><strong>Payment Received</strong> for Order #1232</p>
+                                <p class="activity-details">$78.50 - Table 3</p>
+                                <span class="activity-time">45 minutes ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service</p>
+        </div>
+    </footer>
+</body>
+
+</html>

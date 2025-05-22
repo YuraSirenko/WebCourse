@@ -1,0 +1,302 @@
+<!-- filepath: c:\Coding\semester4\web\restaurant-service\src\guest\my-orders.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Restaurant Service</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>My Restaurant Orders</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#" class="active">My Orders</a></li>
+                    <li><a href="../logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="guest-orders" class="guest-section">
+            <h2>My Order History</h2>
+
+            <!-- Filter options -->
+            <div class="filter-controls">
+                <div class="filter-box">
+                    <label for="filter-status">Filter by status:</label>
+                    <select id="filter-status">
+                        <option value="all">All Orders</option>
+                        <option value="active">Active Orders</option>
+                        <option value="completed">Completed Orders</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Active orders section -->
+            <div class="orders-section">
+                <h3>Active Orders</h3>
+
+                <div class="order-cards">
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-id">Order #1003</div>
+                            <div class="order-date">May 1, 2025 - 13:45</div>
+                            <span class="status-badge new">New</span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="order-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Table:</span>
+                                    <span class="detail-value">Table 1</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Waiter:</span>
+                                    <span class="detail-value">Bob</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items-list">
+                                <h4>Items</h4>
+                                <ul>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Calamari</span>
+                                        <span class="item-price">$9.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Spaghetti Carbonara</span>
+                                        <span class="item-price">$12.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Coffee</span>
+                                        <span class="item-price">$3.49</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="order-summary">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span>$26.47</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total:</span>
+                                    <span>$26.47</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <a href="order-details.html?id=1003" class="button-secondary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-id">Order #1002</div>
+                            <div class="order-date">May 1, 2025 - 12:30</div>
+                            <span class="status-badge ready">Ready</span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="order-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Table:</span>
+                                    <span class="detail-value">Table 5</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Waiter:</span>
+                                    <span class="detail-value">Emily</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items-list">
+                                <h4>Items</h4>
+                                <ul>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Margherita Pizza</span>
+                                        <span class="item-price">$10.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Chocolate Lava Cake</span>
+                                        <span class="item-price">$6.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Coffee</span>
+                                        <span class="item-price">$3.49</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="order-summary">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span>$21.47</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total:</span>
+                                    <span>$21.47</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <a href="order-details.html?id=1002" class="button-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past orders section -->
+            <div class="orders-section past-orders">
+                <h3>Past Orders</h3>
+
+                <div class="order-cards">
+                    <div class="order-card past-order">
+                        <div class="order-header">
+                            <div class="order-id">Order #965</div>
+                            <div class="order-date">April 28, 2025 - 19:20</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="order-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Table:</span>
+                                    <span class="detail-value">Table 3</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Waiter:</span>
+                                    <span class="detail-value">Bob</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items-list">
+                                <h4>Items</h4>
+                                <ul>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Bruschetta</span>
+                                        <span class="item-price">$7.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Grilled Salmon</span>
+                                        <span class="item-price">$15.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Chocolate Lava Cake</span>
+                                        <span class="item-price">$6.99</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="order-summary">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span>$30.97</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total:</span>
+                                    <span>$30.97</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <a href="order-details.html?id=965" class="button-secondary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="order-card past-order">
+                        <div class="order-header">
+                            <div class="order-id">Order #921</div>
+                            <div class="order-date">April 22, 2025 - 13:15</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="order-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Table:</span>
+                                    <span class="detail-value">Table 2</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Waiter:</span>
+                                    <span class="detail-value">Emily</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items-list">
+                                <h4>Items</h4>
+                                <ul>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Caesar Salad</span>
+                                        <span class="item-price">$8.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Margherita Pizza</span>
+                                        <span class="item-price">$10.99</span>
+                                    </li>
+                                    <li>
+                                        <span class="item-quantity">1×</span>
+                                        <span class="item-name">Soda</span>
+                                        <span class="item-price">$2.99</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="order-summary">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span>$22.97</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total:</span>
+                                    <span>$22.97</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <a href="order-details.html?id=921" class="button-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-link current">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">→</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Restaurant Service</p>
+        </div>
+    </footer>
+</body>
+
+</html>

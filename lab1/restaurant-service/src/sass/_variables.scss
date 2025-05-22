@@ -1,0 +1,69 @@
+// Color system
+$color-primary: #2c3e50;
+$color-secondary: #3498db;
+$color-tertiary: #f39c12;
+$color-error: #e74c3c;
+$color-success: #2ecc71;
+$color-warning: #f1c40f;
+$color-text: #2c3e50;
+$color-text-light: #7f8c8d;
+
+// Role-specific colors
+$color-admin: #8e44ad;
+$color-waiter: #2980b9;
+$color-guest: #27ae60;
+
+// Status colors
+$color-new: #3498db;
+$color-preparing: #f39c12;
+$color-ready: #27ae60;
+$color-delivered: #2c3e50;
+$color-completed: #2ecc71;
+$color-active: #2ecc71;
+$color-inactive: #95a5a6;
+
+// Background colors
+$background-color-light: #f5f6fa;
+$background-color-dark: #2c3e50;
+$border-color: #dcdde1;
+
+// Typography
+$font-stack: 'Segoe UI', system-ui, -apple-system, sans-serif;
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-xxl: 1.5rem;
+
+// Spacing
+$spacing-unit: 1rem;
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Borders & Shadows
+$border-radius: 0.25rem;
+$border-radius-lg: 0.5rem;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+// Layout
+$container-max-width: 1200px;
+$sidebar-width: 250px;
+$header-height: 4.375rem; // Converting 70px to rem (70/16)
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Z-index scale
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal: 1000;
+$z-index-popover: 1050;
+$z-index-tooltip: 1060;
