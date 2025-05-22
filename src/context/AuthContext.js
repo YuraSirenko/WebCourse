@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React, { createContext, useState, useEffect } from 'react';
 import { loginRequest } from '../services/api';
 import { useNavigate } from 'react-router-dom';

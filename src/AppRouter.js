@@ -15,34 +15,13 @@ const AppRouter = () => {
         <>
             {user && <NavBar />}
             <Routes>
-                <Route
-                    path="/"
-                    element={<Navigate to="/login" replace />}
-                />
-                <Route
-                    path="/login"
-                    element={!user ? <Login /> : <Navigate to="/users" />}
-                />
-                <Route
-                    path="/register"
-                    element={<Register />}
-                />
-                <Route
-                    path="/users"
-                    element={user ? <UsersList /> : <Navigate to="/login" />}
-                />
-                <Route
-                    path="/users/new"
-                    element={user ? <UserForm /> : <Navigate to="/login" />}
-                />
-                <Route
-                    path="/users/:id"
-                    element={user ? <UserForm /> : <Navigate to="/login" />}
-                />
-                <Route
-                    path="/orders"
-                    element={user ? <OrderManager /> : <Navigate to="/login" />}
-                />
+                <Route path="/" element={<Navigate to="/login" replace />} />
+                <Route path="/login" element={!user ? <Login /> : <Navigate to="/users" />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/users" element={user ? <UsersList /> : <Navigate to="/login" />} />
+                <Route path="/users/new" element={user ? <UserForm /> : <Navigate to="/login" />} />
+                <Route path="/users/:id" element={user ? <UserForm /> : <Navigate to="/login" />} />
+                <Route path="/orders" element={user ? <OrderManager /> : <Navigate to="/login" />} />
                 <Route path="*" element={<Navigate to={user ? '/users' : '/login'} />} />
             </Routes>
         </>
